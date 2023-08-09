@@ -12,6 +12,10 @@ public class Register {
 
     /*instancia teclado*/
     Scanner teclado = new Scanner(System.in);
+
+    /*instancia output*/
+    Output output = new Output();
+
     public void BothRegister(){
         /*coleta dados*/
         PlayerRegister();
@@ -27,6 +31,8 @@ public class Register {
         player.skin = teclado.nextLine();
         System.out.println("------  Player Cadastrado com Sucesso  ------");
         System.out.println("--------------------------------------------");
+
+        output.PrintPlayer(player);
     }
 
     public void EnemyRegister(){
@@ -38,6 +44,8 @@ public class Register {
         player.skin = teclado.nextLine();
         System.out.println("------  Enemy Cadastrado com Sucesso  ------");
         System.out.println("--------------------------------------------");
+
+        output.PrintEnemy(enemy);
     }
 
     public void Decision(){
