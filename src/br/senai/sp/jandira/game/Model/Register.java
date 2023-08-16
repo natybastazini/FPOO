@@ -21,6 +21,7 @@ public class Register {
     public void BothRegister(){
 
         /*coleta dados*/
+        avaliaAmbos = 1;
         PlayerRegister();
         EnemyRegister();
         output.PrintPlayer(player);
@@ -32,9 +33,9 @@ public class Register {
         System.out.println("--------------------------------------------");
         System.out.println("------------  Cadastro Player  ------------");
         System.out.println("Qual é seu nome: ");
-        player.name = teclado.nextLine();
+        player.name = teclado.next();
         System.out.println("Selecione sua Skin [Red - Blue - Green]");
-        player.skin = teclado.nextLine();
+        player.skin = teclado.next();
         System.out.println("------  Player Cadastrado com Sucesso  ------");
         System.out.println("--------------------------------------------");
 
@@ -47,9 +48,9 @@ public class Register {
         System.out.println("--------------------------------------------");
         System.out.println("--------------  Cadastro Enemy  --------------");
         System.out.println("Qual é seu nome: ");
-        enemy.name = teclado.nextLine();
+        enemy.name = teclado.next();
         System.out.println("Selecione sua Skin [Red - Blue - Green]");
-        enemy.skin = teclado.nextLine();
+        enemy.skin = teclado.next();
         System.out.println("------  Enemy Cadastrado com Sucesso  ------");
         System.out.println("--------------------------------------------");
 
@@ -64,7 +65,7 @@ public class Register {
 
         System.out.println("------------  Seja bem vindo !!  -------------");
         System.out.println("O que deseja cadastrar [Player - Enemy - Ambos]: ");
-        decision = teclado.nextLine();
+        decision = teclado.next();
 
         switch (decision.toLowerCase()){
 
@@ -79,6 +80,15 @@ public class Register {
             case "ambos":
             BothRegister();
             break;
+
+            }
+
+        System.out.println("----------------------------------------");
+        System.out.println("Deseja continuar? (1- Sim 2- Nâo): ");
+        int continuar = teclado.nextInt();
+
+        if (continuar == 1){
+            Decision();
 
         }
     }
