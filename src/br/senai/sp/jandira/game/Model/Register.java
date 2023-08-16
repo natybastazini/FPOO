@@ -16,10 +16,16 @@ public class Register {
     /*instancia output*/
     Output output = new Output();
 
+    int avaliaAmbos = 0;
+
     public void BothRegister(){
+
         /*coleta dados*/
         PlayerRegister();
         EnemyRegister();
+        output.PrintPlayer(player);
+        output.PrintEnemy(enemy);
+
     }
 
     public  void PlayerRegister(){
@@ -32,20 +38,24 @@ public class Register {
         System.out.println("------  Player Cadastrado com Sucesso  ------");
         System.out.println("--------------------------------------------");
 
-        output.PrintPlayer(player);
+        if(avaliaAmbos != 1){
+            output.PrintPlayer(player);
+        }
     }
 
     public void EnemyRegister(){
         System.out.println("--------------------------------------------");
         System.out.println("--------------  Cadastro Enemy  --------------");
         System.out.println("Qual é seu nome: ");
-        player.name = teclado.nextLine();
+        enemy.name = teclado.nextLine();
         System.out.println("Selecione sua Skin [Red - Blue - Green]");
-        player.skin = teclado.nextLine();
+        enemy.skin = teclado.nextLine();
         System.out.println("------  Enemy Cadastrado com Sucesso  ------");
         System.out.println("--------------------------------------------");
 
-        output.PrintEnemy(enemy);
+        if(avaliaAmbos != 1){
+            output.PrintEnemy(enemy);
+        }
     }
 
     public void Decision(){
@@ -56,22 +66,19 @@ public class Register {
         System.out.println("O que deseja cadastrar [Player - Enemy - Ambos]: ");
         decision = teclado.nextLine();
 
-        switch (decision){
+        switch (decision.toLowerCase()){
 
-            case "Player":
+            case "player":
             PlayerRegister();
             break;
 
-            case "Enemy":
+            case "enemy":
             EnemyRegister();
             break;
 
-            case "Ambos":
+            case "ambos":
             BothRegister();
             break;
-
-            default:
-                System.out.println("Escolha uma opção válida!! ");
 
         }
     }
