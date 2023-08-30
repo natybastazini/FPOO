@@ -12,4 +12,12 @@ public class Enemy {
     public int GetLife(){
         return life;
     }
+
+    public void SubtrairVida(int danoPlayer){
+        life -= danoPlayer;
+
+        if (life < 0){
+            life = 0;
+        }
+    }
 }
