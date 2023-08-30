@@ -43,6 +43,7 @@ public class Battle {
             System.out.println("---------------------------- Battle ----------------------------");
             System.out.println(" Ataque Player [R] - " + player.name + " life: " + lifePlayer);
             System.out.println(" Ataque Enemy [Q] - " + enemy.name + "life: " + lifeEnemy);
+            System.out.println(" Defesa Player oub Enemy [1 à 5]");
             System.out.println("----------------------------------------------------------------");
 
             String attack = teclado.next();
@@ -52,11 +53,27 @@ public class Battle {
                 System.out.println("           Player atacou          ");
                 System.out.println("----------------------------------");
 
-
                 int danoPlayer = (int) (Math.random() * 20) + 1;
+                int defesaEnemy = (int) (Math.random() * 20) + 1;
 
+                int chanceDefesa = (int) (Math.random() * 5) + 1;
+                int danoReal;
 
-                enemy.SubtrairVida(danoPlayer);
+                System.out.println("Digite um número para defesa [1 à 5]");
+
+                int numberDefesa = teclado.nextInt();
+
+                if (numberDefesa == chanceDefesa){
+                    danoReal = danoPlayer - defesaEnemy;
+                } else {
+                    danoReal = danoPlayer;
+                }
+
+                if (danoReal < 0){
+                    danoReal = 0;
+                }
+
+                enemy.SubtrairVida(danoReal);
 
                 System.out.println("----------------------------------");
                 System.out.println("O ataque foi de: " + danoPlayer);
@@ -69,15 +86,26 @@ public class Battle {
 
 
                 int danoEnemy = (int) (Math.random() * 20) + 1;
+                int defesaPlayer = (int) (Math.random() * 20) + 1;
 
-                player.SubtrairVida(danoEnemy);
+                int chanceDefesa = (int) (Math.random() * 5) + 1;
+                int danoReal;
+
+                System.out.println("Digite um número para defesa [1 à 5]");
+                int numberDefesa = teclado.nextInt();
+
+                if (numberDefesa == chanceDefesa){
+                    danoReal = danoEnemy - defesaPlayer;
+                } else{
+                    danoReal = danoEnemy;
+                }
 
                 System.out.println("----------------------------------");
                 System.out.println("O ataque foi de: " + danoEnemy);
                 System.out.println("----------------------------------");
 
             } else {
-                System.out.println(" Tecla inválida");
+                System.out.println(" Tecla inválida!! ");
             }
 
         }
