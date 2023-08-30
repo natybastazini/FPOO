@@ -22,4 +22,8 @@ public class Player {
         }
     }
 
+    public void RestartLife(){
+        life = 100;
+    }
+
 }

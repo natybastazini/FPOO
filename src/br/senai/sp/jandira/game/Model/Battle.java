@@ -43,7 +43,7 @@ public class Battle {
             System.out.println("---------------------------- Battle ----------------------------");
             System.out.println(" Ataque Player [R] - " + player.name + " life: " + lifePlayer);
             System.out.println(" Ataque Enemy [Q] - " + enemy.name + "life: " + lifeEnemy);
-            System.out.println(" Defesa Player oub Enemy [1 à 5]");
+            System.out.println(" Defesa Player ou Enemy [1 à 5]");
             System.out.println("----------------------------------------------------------------");
 
             String attack = teclado.next();
@@ -100,8 +100,10 @@ public class Battle {
                     danoReal = danoEnemy;
                 }
 
+                player.SubtrairVida(danoReal);
+
                 System.out.println("----------------------------------");
-                System.out.println("O ataque foi de: " + danoEnemy);
+                System.out.println("O defesa foi de: " + danoEnemy);
                 System.out.println("----------------------------------");
 
             } else {

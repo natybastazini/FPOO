@@ -20,4 +20,8 @@ public class Enemy {
             life = 0;
         }
     }
+
+    public void RestartLife(){
+        life = 100;
+    }
 }
