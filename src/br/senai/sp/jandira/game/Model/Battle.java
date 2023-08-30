@@ -107,7 +107,7 @@ public class Battle {
                 System.out.println("----------------------------------");
 
             } else {
-                System.out.println(" Tecla inválida!! ");
+                System.out.println(" Tecla inválida!!");
             }
 
         }
